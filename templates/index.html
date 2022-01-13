@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>New chat</title>
+</head>
+<body>
+    {#  При создании нового чата  #}
+    <p>Id: {{ chat.id }}</p>
+    <p>Token: {{ chat.token }}</p>
+    {#  При получении QR-кода  #}
+    {% if qr_code %}
+        <p>{{ qr_code }}</p>
+    {% endif %}
+    {#  При удалении чатика  #}
+    {% if delete_status %}
+        <p>{{ delete_status }}</p>
+    {% endif %}
+    {#  При получении статуса аккаунта выводим имя и телефон юзера  #}
+    {% if contact %}
+        <p>Имя: {{ contact.name }}</p>
+        <p>Номер: {{ contact.phone }}</p>
+    {% else %}
+        {{ info }}
+    {% endif %}
+    {#  Получение статуса отправленного сообщения  #}
+    {% if sent %}
+        <p>{{ sent }}</p>
+    {% endif %}
+</body>
+</html>
